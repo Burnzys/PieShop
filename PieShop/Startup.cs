@@ -23,7 +23,11 @@ namespace PieShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // We use the Transient to instantiate a singleton of our
+            // Service the AddTransient in services will return a Service everytime
+            // a Repository is called
             services.AddTransient<IPieRepository, PieService>();
+            services.AddTransient<ICustomerRepository, CustomerService>();
             services.AddMvc();
 
             services.AddDbContext<PieShopContext>(options =>

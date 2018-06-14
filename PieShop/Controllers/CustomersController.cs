@@ -27,7 +27,8 @@ namespace PieShop.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customer.ToListAsync());
+            var customers = _customerRepository.GetAllCustomers().OrderBy(c => c.Name);
+            return View(customers);
         }
 
         // GET: Customers/Details/5

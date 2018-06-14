@@ -23,6 +23,7 @@ namespace PieShop.Models
         // the name, it it takes parameters, no curly braces and ends with
         // a semi-colen
         IEnumerable<Customer> GetAllCustomers();
-        Customer GetCustomerById(int Id);
+        Customer GetCustomerById(int? Id);
+        void Save(Customer customer);
     }
 }

@@ -25,7 +25,7 @@ namespace PieShop.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var customers = _customerRepository.GetAllCustomers().OrderBy(c => c.Name);
             return View(customers);
@@ -39,8 +39,12 @@ namespace PieShop.Controllers
                 return NotFound();
             }
 
+            /*
             var customer = await _context.Customer
                 .SingleOrDefaultAsync(m => m.Id == id);
+                */
+
+            var customer = _customerRepository.GetCustomerById(id);
             if (customer == null)
             {
                 return NotFound();
@@ -52,6 +56,7 @@ namespace PieShop.Controllers
         // GET: Customers/Create
         public IActionResult Create()
         {
+            Console.WriteLine("Method called");
             return View();
         }
 
@@ -62,10 +67,15 @@ namespace PieShop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,AddressLine1,Town,County,PostCode")] Customer customer)
         {
+            Console.WriteLine(ModelState.IsValid);
             if (ModelState.IsValid)
             {
+                /*
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
+                */
+                _customerRepository.Save(customer);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(customer);

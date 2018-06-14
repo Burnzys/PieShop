@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PieShop.Models
 {
-    interface ICustomerRepository
+    public interface ICustomerRepository
     {
         IEnumerable<Customer> GetAllCustomers();
         Customer GetCustomerById(int Id);

@@ -11,11 +11,17 @@ namespace PieShop.Controllers
 {
     public class CustomersController : Controller
     {
+        // As we are not using the context here to access the database
+        // we will comment this out for the moment
         private readonly PieShopContext _context;
 
-        public CustomersController(PieShopContext context)
+        // We will use our service to access the seeded data and our 
+        // actions
+        private readonly ICustomerRepository _customerRepository;
+
+        public CustomersController(ICustomerRepository customerRepository)
         {
-            _context = context;
+            _customerRepository = customerRepository;
         }
 
         // GET: Customers

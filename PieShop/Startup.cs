@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PieShop.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace PieShop
 {
@@ -24,6 +25,9 @@ namespace PieShop
         {
             services.AddTransient<IPieRepository, PieService>();
             services.AddMvc();
+
+            services.AddDbContext<PieShopContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PieShopContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

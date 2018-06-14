@@ -25,9 +25,9 @@ namespace PieShop.Models
             throw new NotImplementedException();
         }
 
-        public Purchase GetPurchaseById(int id)
+        public Purchase GetPurchaseById(int? id)
         {
-            throw new NotImplementedException();
+            return _context.Purchase.FirstOrDefault(p => p.Id == id);
         }
     }
 }

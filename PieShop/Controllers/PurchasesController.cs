@@ -14,10 +14,14 @@ namespace PieShop.Controllers
         private readonly PieShopContext _context;
 
         private readonly IPurchaseRepository _purchaseRepository;
+        private readonly IPieRepository _pieRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public PurchasesController(IPurchaseRepository purchaseRepository)
+        public PurchasesController(IPurchaseRepository purchaseRepository, IPieRepository pieRepository, ICustomerRepository customerRepository)
         {
             _purchaseRepository = purchaseRepository;
+            _pieRepository = pieRepository;
+            _customerRepository = customerRepository;
         }
 
         // GET: Purchases
@@ -35,8 +39,7 @@ namespace PieShop.Controllers
                 return NotFound();
             }
 
-            var purchase = await _context.Purchase
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var purchase = _purchaseRepository.GetPurchaseById(id);
             if (purchase == null)
             {
                 return NotFound();

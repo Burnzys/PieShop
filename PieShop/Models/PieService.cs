@@ -31,12 +31,12 @@ namespace PieShop.Models
 
         public IEnumerable<Pie> GetAllPies()
         {
-            throw new NotImplementedException();
+            return _pies;
         }
 
         public Pie GetPieById(int Id)
         {
-            throw new NotImplementedException();
+            return _pies.FirstOrDefault(p => p.Id == Id);
         }
     }
 }

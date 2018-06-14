@@ -8,6 +8,6 @@ namespace PieShop.Models
     public interface IPieRepository
     {
         IEnumerable<Pie> GetAllPies();
-        Pie GetPieById(int Id);
+        Pie GetPieById(int? Id);
     }
 }

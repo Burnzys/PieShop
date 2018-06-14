@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using PieShop.Models;
 
 namespace PieShop.Models
 {
@@ -13,6 +14,10 @@ namespace PieShop.Models
         {
         }
 
+        public DbSet<PieShop.Models.Pie> Pie { get; set; }
+
         public DbSet<PieShop.Models.Customer> Customer { get; set; }
+
+        public DbSet<PieShop.Models.Purchase> Purchase { get; set; }
     }
 }

@@ -28,6 +28,7 @@ namespace PieShop
             // a Repository is called
             services.AddTransient<IPieRepository, PieService>();
             services.AddTransient<ICustomerRepository, CustomerService>();
+            services.AddTransient<IPurchaseRepository, PurchaseService>();
             services.AddMvc();
 
             services.AddDbContext<PieShopContext>(options =>

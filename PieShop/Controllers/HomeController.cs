@@ -19,7 +19,8 @@ namespace PieShop.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var Pies = _pieRepository.GetAllPies().OrderBy(p => p.Name);
+            return View(Pies);
         }
 
         public IActionResult About()

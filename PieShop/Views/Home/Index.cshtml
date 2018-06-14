@@ -1,5 +1,27 @@
-﻿@{
+﻿@model IEnumerable<PieShop.Models.Pie>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<h2>Welcome to the Pie Shop</h2>
 
+<div class="container pie-list">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-3">
+                <h3>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </h3>
+                <p>
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                </p>
+                <img src="~/images/@Html.DisplayFor(modelItem => item.ThumbnailUrl)" alt="tasty pie" />
+                <p>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </p>
+            </div>
+        }
+    </div>
+</div>

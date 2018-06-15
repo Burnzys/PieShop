@@ -23,6 +23,13 @@ namespace PieShop.Controllers
             return View(Pies);
         }
 
+        public IActionResult Details(int? id)
+        {
+            var Pie = _pieRepository.GetPieById(id);
+
+            return View(Pie);
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

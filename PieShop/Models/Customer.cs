@@ -13,6 +13,7 @@ namespace PieShop.Models
         public string Town { get; set; }
         public string County { get; set; }
         public string PostCode { get; set; }
+        public ICollection<Purchase> Purchases { get; set; }
         public override string ToString()
         {
             return "Customer: " + Id + " " + "Name: " + Name;

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PieShop.Models;
+using PieShop.ViewModel;
 
 namespace PieShop.Controllers
 {
@@ -40,12 +41,17 @@ namespace PieShop.Controllers
             }
 
             var purchase = _purchaseRepository.GetPurchaseById(id);
+            PiePurchase piePurchase = new PiePurchase();
+
+            piePurchase.Pie = _pieRepository.GetPieById(purchase.PieId);
+            piePurchase.Customer = _customerRepository.GetCustomerById(purchase.CustomerId);
+
             if (purchase == null)
             {
                 return NotFound();
             }
 
-            return View(purchase);
+            return View(piePurchase);
         }
 
         // GET: Purchases/Create
@@ -63,8 +69,8 @@ namespace PieShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(purchase);
-                await _context.SaveChangesAsync();
+                _purchaseRepository.Save(purchase);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(purchase);

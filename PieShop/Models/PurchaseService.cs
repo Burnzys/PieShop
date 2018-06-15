@@ -20,7 +20,7 @@ namespace PieShop.Models
             return _context.Purchase.ToList();
         }
 
-        public Purchase GetPurchaseByCustomerId(int id)
+        public Purchase GetPurchaseByCustomerId(int? id)
         {
             throw new NotImplementedException();
         }
@@ -28,6 +28,17 @@ namespace PieShop.Models
         public Purchase GetPurchaseById(int? id)
         {
             return _context.Purchase.FirstOrDefault(p => p.Id == id);
+        }
+
+        public int GetPieId(int? id)
+        {
+            return 1;
+        }
+
+        public void Save(Purchase purchase)
+        {
+            _context.Add(purchase);
+            _context.SaveChangesAsync();
         }
     }
 }

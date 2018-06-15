@@ -13,7 +13,7 @@ namespace PieShop.Controllers
     {
         // As we are not using the context here to access the database
         // we will comment this out for the moment
-        private readonly PieShopContext _context;
+        //private readonly PieShopContext _context;
 
         // We will use our service to access the seeded data and our 
         // actions
@@ -89,12 +89,12 @@ namespace PieShop.Controllers
                 return NotFound();
             }
 
-            var customer = await _context.Customer.SingleOrDefaultAsync(m => m.Id == id);
+            /*var customer = await _context.Customer.SingleOrDefaultAsync(m => m.Id == id);
             if (customer == null)
             {
                 return NotFound();
-            }
-            return View(customer);
+            }*/
+            return View(null);
         }
 
         // POST: Customers/Edit/5
@@ -113,19 +113,19 @@ namespace PieShop.Controllers
             {
                 try
                 {
-                    _context.Update(customer);
-                    await _context.SaveChangesAsync();
+                    //_context.Update(customer);
+                    //await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomerExists(customer.Id))
+                    /*if (!CustomerExists(customer.Id))
                     {
                         return NotFound();
                     }
                     else
                     {
                         throw;
-                    }
+                    }*/
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -140,14 +140,14 @@ namespace PieShop.Controllers
                 return NotFound();
             }
 
-            var customer = await _context.Customer
+            /*var customer = await _context.Customer
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (customer == null)
             {
                 return NotFound();
-            }
+            }*/
 
-            return View(customer);
+            return View(null);
         }
 
         // POST: Customers/Delete/5
@@ -155,15 +155,15 @@ namespace PieShop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var customer = await _context.Customer.SingleOrDefaultAsync(m => m.Id == id);
+            /*var customer = await _context.Customer.SingleOrDefaultAsync(m => m.Id == id);
             _context.Customer.Remove(customer);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();*/
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CustomerExists(int id)
+        /*private bool CustomerExists(int id)
         {
-            return _context.Customer.Any(e => e.Id == id);
-        }
+            //return _context.Customer.Any(e => e.Id == id);
+        }*/
     }
 }

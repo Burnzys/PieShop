@@ -10,5 +10,7 @@ namespace PieShop.Models
         IEnumerable<Purchase> GetAllPurchases();
         Purchase GetPurchaseById(int? id);
         Purchase GetPurchaseByCustomerId(int? id);
+        int GetPieId(int? id);
+        void Save(Purchase purchase);
     }
 }

@@ -40,11 +40,17 @@ namespace PieShop.Controllers
                 return NotFound();
             }
 
+            /* We can use our purchaseRepo to get the purcase we need
+               then by using the purchase object along with the pieRepo
+               and the customerRepo we can get the Pie object and Customer object
+               this can then be set for the PiePurchase object and passed to the View
+             */
             var purchase = _purchaseRepository.GetPurchaseById(id);
-            PiePurchase piePurchase = new PiePurchase();
-
-            piePurchase.Pie = _pieRepository.GetPieById(purchase.PieId);
-            piePurchase.Customer = _customerRepository.GetCustomerById(purchase.CustomerId);
+            PiePurchase piePurchase = new PiePurchase
+            {
+                Pie = _pieRepository.GetPieById(purchase.PieId),
+                Customer = _customerRepository.GetCustomerById(purchase.CustomerId)
+            };
 
             if (purchase == null)
             {

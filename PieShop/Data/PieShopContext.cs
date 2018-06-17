@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PieShop.Models;
 
 namespace PieShop.Models
 {
-    public class PieShopContext : DbContext
+    public class PieShopContext : IdentityDbContext<IdentityUser>
     {
         public PieShopContext (DbContextOptions<PieShopContext> options)
             : base(options)

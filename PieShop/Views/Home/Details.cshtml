@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <!--<h2>@Html.DisplayFor(model => model.Name)</h2>
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
     <hr />
     <div class="row">
         <div class="col-md-4">
@@ -22,8 +22,8 @@
         <div class="col-md-8 pie-detail-img">
             <img src="~/images/@Html.DisplayFor(model => model.ImageUrl)" alt="Tasty Pie" />
         </div>
-    </div>-->
-    <dl class="dl-horizontal">
+    </div>
+    <!--<dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -48,7 +48,7 @@
         <dd>
             @Html.DisplayFor(model => model.Price)
         </dd>
-    </dl>
+    </dl>-->
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |

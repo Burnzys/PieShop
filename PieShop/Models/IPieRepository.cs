@@ -9,5 +9,6 @@ namespace PieShop.Models
     {
         IEnumerable<Pie> GetAllPies();
         Pie GetPieById(int? Id);
+        void Save(Pie pie);
     }
 }

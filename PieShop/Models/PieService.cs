@@ -23,5 +23,11 @@ namespace PieShop.Models
         {
             return _context.Pie.FirstOrDefault(p => p.Id == Id);
         }
+
+        public void Save(Pie pie)
+        {
+            _context.Add(pie);
+            _context.SaveChangesAsync();
+        }
     }
 }

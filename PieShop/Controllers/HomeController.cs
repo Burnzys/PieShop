@@ -30,6 +30,30 @@ namespace PieShop.Controllers
             return View(Pie);
         }
 
+        // GET: Pies/Create
+        public IActionResult Create()
+        {
+            Console.WriteLine("Method called");
+            return View();
+        }
+
+        // POST: Pies/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Name,ShortDescription,LongDescription,Price,ImageUrl,ThumbnailUrl,IsPieOfTheWeek")] Pie pie)
+        {
+            Console.WriteLine(ModelState.IsValid);
+            if (ModelState.IsValid)
+            {
+                _pieRepository.Save(pie);
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(pie);
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

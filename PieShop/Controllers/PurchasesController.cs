@@ -18,7 +18,8 @@ namespace PieShop.Controllers
         private readonly IPieRepository _pieRepository;
         private readonly ICustomerRepository _customerRepository;
 
-        public PurchasesController(IPurchaseRepository purchaseRepository, IPieRepository pieRepository, ICustomerRepository customerRepository)
+        public PurchasesController(IPurchaseRepository purchaseRepository, 
+            IPieRepository pieRepository, ICustomerRepository customerRepository)
         {
             _purchaseRepository = purchaseRepository;
             _pieRepository = pieRepository;

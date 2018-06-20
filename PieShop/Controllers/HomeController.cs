@@ -42,12 +42,14 @@ namespace PieShop.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,ShortDescription,LongDescription,Price,ImageUrl,ThumbnailUrl,IsPieOfTheWeek,Category")] Pie pie)
+        public async Task<IActionResult> Create([Bind("Name,ShortDescription,LongDescription,Price,ImageUrl,ThumbnailUrl,IsPieOfTheWeek,PieType")] Pie pie)
         {
             Console.WriteLine(ModelState.IsValid);
             if (ModelState.IsValid)
             {
                 _pieRepository.Save(pie);
+
+                Console.WriteLine("Pie has been saved");
 
                 return RedirectToAction(nameof(Index));
             }

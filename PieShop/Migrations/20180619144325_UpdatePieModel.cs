@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PieShop.Migrations
 {
-    public partial class UpdatedPieCategories : Migration
+    public partial class UpdatePieModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "Category",
+                name: "PieType",
                 table: "Pie",
                 nullable: false,
                 defaultValue: 0);
@@ -17,7 +17,7 @@ namespace PieShop.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "AddressLine1",
                 table: "Customer",
-                maxLength: 10,
+                maxLength: 50,
                 nullable: true,
                 oldClrType: typeof(string),
                 oldNullable: true);
@@ -231,7 +231,7 @@ namespace PieShop.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Category",
+                name: "PieType",
                 table: "Pie");
 
             migrationBuilder.AlterColumn<string>(
@@ -239,7 +239,7 @@ namespace PieShop.Migrations
                 table: "Customer",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldMaxLength: 10,
+                oldMaxLength: 50,
                 oldNullable: true);
         }
     }

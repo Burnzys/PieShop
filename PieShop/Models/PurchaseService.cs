@@ -38,7 +38,7 @@ namespace PieShop.Models
         public void Save(Purchase purchase)
         {
             _context.Add(purchase);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PieShop.Models
 {
@@ -18,7 +14,7 @@ namespace PieShop.Models
         public string ImageUrl { get; set; }
         public string ThumbnailUrl { get; set; }
         public bool IsPieOfTheWeek { get; set; }
-        public Category Category { get; set; }
+        public PieType PieType { get; set; }
 
     }
 }

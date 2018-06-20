@@ -11,7 +11,7 @@ namespace PieShop.Models
         public int Id { get; set; }
         public string Name { get; set; }
         [Display(Name = "Address")]
-        [StringLength(10, MinimumLength = 3)]
+        [StringLength(50, MinimumLength = 3)]
         public string AddressLine1 { get; set; }
         public string Town { get; set; }
         public string County { get; set; }

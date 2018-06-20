@@ -183,7 +183,7 @@ namespace PieShop.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("AddressLine1")
-                        .HasMaxLength(10);
+                        .HasMaxLength(50);
 
                     b.Property<string>("County");
 
@@ -203,8 +203,6 @@ namespace PieShop.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Category");
-
                     b.Property<string>("ImageUrl");
 
                     b.Property<bool>("IsPieOfTheWeek");
@@ -212,6 +210,8 @@ namespace PieShop.Migrations
                     b.Property<string>("LongDescription");
 
                     b.Property<string>("Name");
+
+                    b.Property<int>("PieType");
 
                     b.Property<decimal>("Price");
 

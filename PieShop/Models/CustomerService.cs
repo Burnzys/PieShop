@@ -40,7 +40,7 @@ namespace PieShop.Models
         public void Save(Customer customer)
         {
             _context.Add(customer);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             Console.WriteLine(customer.Name);
         }

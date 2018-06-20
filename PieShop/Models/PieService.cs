@@ -26,8 +26,10 @@ namespace PieShop.Models
 
         public void Save(Pie pie)
         {
-            _context.Add(pie);
-            _context.SaveChangesAsync();
+            _context.Pie.Add(pie);
+            _context.SaveChanges();
+
+            Console.WriteLine("Pie is saved");
         }
     }
 }

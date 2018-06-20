@@ -48,7 +48,7 @@
                 <span asp-validation-for="IsPieOfTheWeek" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <select asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()">
+                <select asp-for="PieType" asp-items="Html.GetEnumSelectList<PieType>()">
                     <option selected="selected" value="">Please select</option>
                 </select>
             </div>

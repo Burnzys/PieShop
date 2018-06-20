@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +20,12 @@ namespace PieShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<PieShopContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PieShopContext")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<PieShopContext>();
+
             // We use the Transient to instantiate a singleton of our
             // Service the AddTransient in services will return a Service everytime
             // a Repository is called
@@ -33,11 +35,8 @@ namespace PieShop
             services.AddMvc();
             services.AddSession();
 
-            services.AddDbContext<PieShopContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("PieShopContext")));
-
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<PieShopContext>();
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

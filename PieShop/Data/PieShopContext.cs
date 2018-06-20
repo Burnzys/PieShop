@@ -9,7 +9,7 @@ using PieShop.Models;
 
 namespace PieShop.Models
 {
-    public class PieShopContext : DbContext
+    public class PieShopContext : IdentityDbContext<IdentityUser>
     {
         public PieShopContext (DbContextOptions<PieShopContext> options)
             : base(options)

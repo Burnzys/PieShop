@@ -31,9 +31,13 @@ namespace PieShop
             services.AddTransient<ICustomerRepository, CustomerService>();
             services.AddTransient<IPurchaseRepository, PurchaseService>();
             services.AddMvc();
+            services.AddSession();
 
             services.AddDbContext<PieShopContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("PieShopContext")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<PieShopContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +54,8 @@ namespace PieShop
             }
 
             app.UseStaticFiles();
+            app.UseSession();
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PieShop.Models;
 using PieShop.ViewModel;
@@ -18,7 +15,8 @@ namespace PieShop.Controllers
         private readonly IPieRepository _pieRepository;
         private readonly ICustomerRepository _customerRepository;
 
-        public PurchasesController(IPurchaseRepository purchaseRepository, IPieRepository pieRepository, ICustomerRepository customerRepository)
+        public PurchasesController(IPurchaseRepository purchaseRepository, 
+            IPieRepository pieRepository, ICustomerRepository customerRepository)
         {
             _purchaseRepository = purchaseRepository;
             _pieRepository = pieRepository;

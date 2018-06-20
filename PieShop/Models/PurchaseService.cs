@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PieShop.Models
 {
@@ -38,7 +36,7 @@ namespace PieShop.Models
         public void Save(Purchase purchase)
         {
             _context.Add(purchase);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
     }
 }

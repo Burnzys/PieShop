@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PieShop.Models
 {
@@ -22,6 +21,14 @@ namespace PieShop.Models
         public Pie GetPieById(int? Id)
         {
             return _context.Pie.FirstOrDefault(p => p.Id == Id);
+        }
+
+        public void Save(Pie pie)
+        {
+            _context.Pie.Add(pie);
+            _context.SaveChanges();
+
+            Console.WriteLine("Pie is saved");
         }
     }
 }

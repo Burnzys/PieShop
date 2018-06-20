@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PieShop.Models
 {
@@ -40,7 +39,7 @@ namespace PieShop.Models
         public void Save(Customer customer)
         {
             _context.Add(customer);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             Console.WriteLine(customer.Name);
         }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PieShop.Models
 {
@@ -11,7 +8,7 @@ namespace PieShop.Models
         public int Id { get; set; }
         public string Name { get; set; }
         [Display(Name = "Address")]
-        [StringLength(10, MinimumLength = 3)]
+        [StringLength(50, MinimumLength = 3)]
         public string AddressLine1 { get; set; }
         public string Town { get; set; }
         public string County { get; set; }

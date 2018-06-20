@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PieShop.Models;
 
 namespace PieShop.Migrations
 {
     [DbContext(typeof(PieShopContext))]
-    partial class PieShopContextModelSnapshot : ModelSnapshot
+    [Migration("20180620133610_UpdateIdentity")]
+    partial class UpdateIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -189,9 +191,17 @@ namespace PieShop.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("Password")
+                        .IsRequired();
+
                     b.Property<string>("PostCode");
 
+                    b.Property<string>("ReturnUrl");
+
                     b.Property<string>("Town");
+
+                    b.Property<string>("Username")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
